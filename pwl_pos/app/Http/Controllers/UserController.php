@@ -9,15 +9,73 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-        public function index()
-        {
-        // $data = [
-        //     'username' => 'Alex ganteng',
-        //     'nama' => 'Pelanggan',
-        //     'password' => Hash::make('12345'),
-        //     'level_id' => 3,
-        // ];
+    public function index(){
+        $user = UserModel::with('level')->get();
+    //     return view('user', ['data' => $user]);
+        dd($user);
+    }
+}
+//     public function index()
+//         {
+//             $user = UserModel::all();
+//             return view('user', ['data' => $user]);
+//     }
 
+   
+
+//     public Function tambah(){
+//         return view('user_tambah');
+//     }
+
+//     public function tambah_simpan(Request $request) 
+//     {
+//         UserModel::create(
+//             [
+//                 'username' => $request->username,
+//                 'nama' => $request->nama,
+//                 'password' => Hash::make('$request->password'),
+//                 'level_id' => $request->level_id
+//             ]
+//             );
+
+//             return redirect('/user');
+//     }
+
+//     public function ubah($id){
+//         $user = UserModel::find($id);
+//         return view('user_ubah', ['data' => $user]);
+//     }
+
+//     public function ubah_simpan($id, Request $request)
+//     {
+//         $user = UserModel::find($id);
+
+//         $user->username = $request->username;
+//         $user->nama = $request->nama;
+//         $user->password = Hash::make('$request ->password');
+//         $user->level_id = $request->level_id;
+
+//         $user->save();
+
+//         return redirect('/user');
+//     }
+
+//     public function hapus($id){
+//         $user = UserModel::find($id);
+//         $user->delete();
+
+//         return redirect('user');
+//     }
+
+        
+// }
+
+// $data = [
+//     'username' => 'Alex ganteng',
+//     'nama' => 'Pelanggan',
+//     'password' => Hash::make('12345'),
+//     'level_id' => 3
+// ];
         // UserModel::insert($data);
 
 
@@ -36,14 +94,13 @@ class UserController extends Controller
         // ];
         // UserModel::create($data);
 
-        $user = UserModel::all();
-        return view('user', ['data' => $user]);
+        
 
         // $user = UserModel::find(1);
 
         // $user = UserModel::where('level_id', 1) -> first();
 
-        // $user = UserModel::firstWhere('level_id', 1);
+        // $user = UserModel::firstWhere('level_id', 2);
 
         // $user = UserModel::findOr(20, ['username', 'nama'], function(){
         //     abort(404);
@@ -53,19 +110,19 @@ class UserController extends Controller
 
         // $user = UserModel::where('username', 'manager9') -> firstOrFail();
 
-        // $user = UserModel::where('level_id', 3)->count();
+        // $user = UserModel::where('level_id', 4)->count();
 
         // return view('user', ['data' => $user]);
 
-        // $user = UserModel::firstOrCreate(
+        // $user = UserModel::create(
         //     [
-        //         'username' => 'manager1111',
-        //         'nama' => 'Manager1111',
+        //         'username' => 'manager55',
+        //         'nama' => 'Manager55',
         //         'password' => Hash::make('12345'),
         //         'level_id' => 2
         //     ],
         // );
-        // $user -> username = 'manager1222';
+        // $user -> username = 'manager56';
 
         // $user->isDirty();
         // $user->isDirty('username');
@@ -92,56 +149,10 @@ class UserController extends Controller
         // $user->wasChanged(['nama', 'username']);
         // dd($user->wesChanged(['nama', 'username']));
 
-    //     $user = UserModel::all();
+        // $user = UserModel::all();
+
     //     return view('user', ['data' => $user]);
-    }
-
-    // public Function tambah(){
-    //     return view('user_tambah');
     // }
 
-    // public function tambah_simpan(Request $request) {
-    //     UserModel::create(
-    //         [
-    //             'username' => $request->username,
-    //             'nama' => $request->nama,
-    //             'password' => Hash::make('$request->password'),
-    //             'level_id' => $request->level_id
-    //         ]
-    //         );
-
-    //         return redirect('/user');
-    // }
-
-    // public function ubah($id){
-    //     $user = UserModel::find($id);
-    //     return view('user_ubah', ['data' => $user]);
-    // }
-
-    // public function ubah_simpan($id, Request $request)
-    // {
-    //     $user = UserModel::find($id);
-
-    //     $user->username = $request->username;
-    //     $user->nama = $request->nama;
-    //     $user->password = Hash::make('$request ->password');
-    //     $user->level_id = $request->level_id;
-
-    //     $user->save();
-
-    //     return redirect('/user');
-    // }
-
-    // public function hapus($id){
-    //     $user = UserModel::find($id);
-    //     $user->delete();
-
-    //     return redirect('user');
-    // }
-
-    // public function index(){
-    //     $user = UserModel::with('level')->get();
-    //     return view('user', ['data' => $user]);
-    //     dd($user);
-    // }
-}
+    
+    
